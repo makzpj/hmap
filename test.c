@@ -65,15 +65,30 @@ void get_keys(hashmap hmap) {
   printf("Found %d elements \n", elements_found);
 }
 
-int main(void) {
+int main(int argc, char **argv) {
   const char *k = "date";
   int v = 2024;
   int v2 = 2025;
+  long int how_many;
 
   const char *k2 = "name";
   const char *s = "Hari Seldon";
 
+  char *endptr;
+
   bool key_found = false;
+
+  if (argc == 2) {
+    how_many = strtol(argv[1], &endptr, 10);
+
+    if (*endptr != '\0') {
+      puts("Invalid number");
+      return 1;
+    }
+  }
+  else {
+    how_many = 10;
+  }
 
   printf("Array size is: %d\n", MAX_ARRAY_SIZE);
 
@@ -112,7 +127,7 @@ int main(void) {
   puts("");
   puts("--- Insert random keys and values test ---");
 
-  insert_random_keys_and_values(hmap, 10);
+  insert_random_keys_and_values(hmap, how_many);
 
   puts("");
   puts("--- Sequential get keys test ---");
