@@ -3,6 +3,7 @@
 #define MAX_ARRAY_SIZE 33554432
 //#define MAX_ARRAY_SIZE 3
 #define LAST_INDEX MAX_ARRAY_SIZE - 1
+#define HMAP_DEBUG
 
 typedef unsigned short int type;
 
